@@ -13,7 +13,7 @@ const CarCard = ({ car }: CarProps) => {
 
   return (
     // card main image
-    <div className="flex flex-col items-center w-[400px]  m-1 bg-slate-300 ">
+    <div className="flex flex-col items-center w-[300px]  m-1 bg-slate-300 ">
       <div className="w-[120px] ">
         <div className="flex items-end m-1">
           <h1 className="text-2xl ">$</h1>

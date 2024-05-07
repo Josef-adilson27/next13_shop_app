@@ -12,38 +12,43 @@ const {setCars} = UseAppContext()
 
 let URL = 'http://localhost:3000/api/fetch'
 
-if(make==='All'){
-  model = ''
-  fuel = ''
-  URL = `http://localhost:3000/api/fetch`
-}
 
-if(make!=='All'&&model!=='All'){
-  URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}`
-}
-
-if(make!=='All'&&model=='All'){
-  URL = `http://localhost:3000/api/fetch?make=${make}`
-}
-
-if(make!=='All'&&model!=='All'&&fuel!=='All'){
-  URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}&fuel=${fuel}`
-}
-
-if(make!=='All'&&model!=='All'&&fuel=='All'){
-  URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}`
-}
-
-if(make!=='All'&&model=='All'&&fuel!=='All'){
-  URL = `http://localhost:3000/api/fetch?make=${make}&fuel=${fuel}`
-}
 
 
 
 
 ///ложим даныые в контекст и оправляем в searchbar
  setCars(Data);
+
   useEffect(()=>{
+
+    if(make==='All'){
+      model = ''
+      fuel = ''
+      URL = `http://localhost:3000/api/fetch`
+    }
+    
+
+    if(make!=='All'&&model!=='All'){
+      URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}`
+    }
+    
+     if(make!=='All'&&model=='All'){
+      URL = `http://localhost:3000/api/fetch?make=${make}`
+    }
+    
+    if(make!=='All'&&model!=='All'&&fuel!=='All'){
+      URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}&fuel=${fuel}`
+    }
+    
+    if(make!=='All'&&model!=='All'&&fuel=='All'){
+      URL = `http://localhost:3000/api/fetch?make=${make}&model=${model}`
+    }
+    
+    if(make!=='All'&&model=='All'&&fuel!=='All'){
+      URL = `http://localhost:3000/api/fetch?make=${make}&fuel=${fuel}`
+    }
+
    fetch(URL)
   .then(res1=>res1.json())
   .then(res=>setData(res))

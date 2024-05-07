@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { Navbar } from "./components";
-import { Footer } from "./components";
+import  Navbar  from "./components/header/Navbar";
+import  Footer  from "./components/footer/Footer";
 import { AppWrapper } from "./context/Store";
 
 export const metadata: Metadata = {
@@ -11,18 +10,18 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
+  children
 }: {
   children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={""}>
-        <Navbar />
+      <body>
+       <Navbar/>
         <AppWrapper>
          {children}
         </AppWrapper>
-        <Footer />
+        <Footer/>
       </body>
     </html>
   );

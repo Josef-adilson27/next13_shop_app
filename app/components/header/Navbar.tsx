@@ -37,6 +37,7 @@ const Navbar: React.FC = () => {
       </div>
     </div>
   );
+console.log(mobileNavbarToggle);
 
   return (
     <header className="w-full flex justify-center absolute z-10">
@@ -54,9 +55,15 @@ const Navbar: React.FC = () => {
           }       
 
           </div>
-          <button className="w-[100px] h-[30px] mx-2 rounded-[30px] bg-blue-700 ">
-            Sign up
-          </button>
+            <BaseButton
+            w='100'
+            h='35'
+            bgColor="rgb(24, 20, 137)"
+            radius="15 15 15 15"
+            m="10 0 0 10"
+            >
+            <h1>Sign up</h1>
+            </BaseButton>
         </div>
       </nav>
     </header>

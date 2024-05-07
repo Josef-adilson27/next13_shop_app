@@ -1,9 +1,8 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import { SearchBar } from "../components";
 import { CarCard } from "@/app/components";
-import { CarTypes } from "@/types";
-import { useGetCars } from "../utils/useGetCars";
+
 import { UseAppContext } from "../context/Store";
 const Render: React.FC = () => {
   
@@ -14,7 +13,7 @@ const Render: React.FC = () => {
       <SearchBar />
       <div className="w-full">
         {
-          <div className="flex flex-wrap justify-around">
+          <div className="grid gap-[10px] grid-cols-[repeat(auto-fit,_minmax(300px,_200px))]  justify-center">
             {cars?.map((item: any) => (
               <CarCard key={item.id} car={item} />
             ))}

@@ -10,7 +10,7 @@ export interface CustomButtonProps {
   m?: string;
   radius?: string;
   color?: string;
-  bgColor:string
+  bgColor?:string
   handleClick?: MouseEventHandler<HTMLButtonElement>;
   btnType?: "button" | "submit";
 }

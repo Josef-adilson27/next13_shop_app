@@ -77,7 +77,7 @@ const listRender = () => {
         <input
           className="outline-none pl-1 bg-slate-200 w-[270px]   h-[30px]"
           type="text"
-          placeholder="Марка"
+          placeholder="Топливо"
           value={state}
           onChange={(e) => {
           setState(e.target.value);
