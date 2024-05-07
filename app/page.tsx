@@ -4,6 +4,7 @@ import Render from "./components/Render";
 export default function Home() {
   return (
     <main className="">
+      
       <Hero />
       <div className="w-full">
         <div className="flex flex-col items-center">
@@ -14,6 +15,7 @@ export default function Home() {
           <Render/>
         </div>
       </div>
+  
     </main>
   );
 }

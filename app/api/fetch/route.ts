@@ -6,30 +6,50 @@ export async function GET(request: Request) {
   const model = searchParams.get("model");
   const fuel = searchParams.get("fuel");
 
-  if (make && model && fuel ) {
-    let res1 = data.filter((item) => {
-      return item.make.includes(make)
-             && item.model.includes(model)
-             && item.fuel_type.includes(fuel)
-       ;
-    });
-    return Response.json(res1);
+  //если make model fuel введены то отфильтруй их
+  //также и с другими ниже..
+
+  if (make && model && fuel) {
+    return Response.json(
+      data.filter((item) => {
+        return (
+          item.make.includes(make.toLowerCase()) &&
+          item.model.includes(model.toLowerCase()) &&
+          item.fuel_type.includes(fuel.toLowerCase())
+        );
+      })
+    );
+  } 
+  else if (make && model) {
+    return Response.json(
+      data.filter((item) => {
+        return (
+        item.make.includes(make.toLowerCase()) && 
+        item.model.includes(model.toLowerCase())
+        )     
+      })
+    );
+  } 
+  else if (make && fuel) {
+    return Response.json(
+      data.filter((item) => {
+        return (    
+        item.make.includes(make.toLowerCase()) && 
+        item.fuel_type.includes(fuel.toLowerCase())
+        )      
+      })
+    );
+  } 
+  else if (make) {
+    return Response.json(
+      data.filter((item) => {
+        return item.make.includes(make.toLowerCase());
+      })
+    );
   }
 
 
- else if (make && model) {
-    let res2 = data.filter((item) => {
-      return item.make.includes(make)
-            && item.model.includes(model);
-    });
-    return Response.json(res2);
-  }
-
-   else if (make) {
-    let res3 = data.filter((item) => {
-      return item.make.includes(make);
-    });
-    return Response.json(res3);
-  }
+//вывод всех товаров по умолчанию
+//если все переменные пусты ( из input полей)
   return Response.json(data);
 }

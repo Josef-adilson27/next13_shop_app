@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "./components";
 import { Footer } from "./components";
+import { AppWrapper } from "./context/Store";
 
 export const metadata: Metadata = {
   title: "Авто-диллер",
@@ -18,7 +19,9 @@ export default function RootLayout({
     <html lang="en">
       <body className={""}>
         <Navbar />
-        {children}
+        <AppWrapper>
+         {children}
+        </AppWrapper>
         <Footer />
       </body>
     </html>

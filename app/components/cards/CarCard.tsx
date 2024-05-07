@@ -3,9 +3,9 @@ import { CarTypes } from "@/types";
 type CarProps = { car: CarTypes };
 import { calculateCarRent } from "@/app/utils";
 import Image from "next/image";
-import { CustomButton } from ".";
+
 import { useState } from "react";
-import { CarDetails } from ".";
+import { CarDetails } from "..";
 
 const CarCard = ({ car }: CarProps) => {
   const carRent = calculateCarRent(car.city_mpg, car.year);
@@ -14,10 +14,9 @@ const CarCard = ({ car }: CarProps) => {
   return (
     // card main image
     <div className="flex flex-col items-center w-[400px]  m-1 bg-slate-300 ">
-
       <div className="w-[120px] ">
         <div className="flex items-end m-1">
-        <h1 className="text-2xl ">$</h1>
+          <h1 className="text-2xl ">$</h1>
           <h1 className="bg-orange-600 ml-1 text-xl w-[30px] h-[30px] rounded-[200px] flex justify-center items-center">
             {carRent}
           </h1>
@@ -34,13 +33,15 @@ const CarCard = ({ car }: CarProps) => {
         </h2>
       </div>
 
-      <Image
-        width={300}
-        height={50}
-        src={car.img}
-        alt=""
-
-      />
+      <div className="w-full h-[200px] flex items-center justify-center">
+        <Image
+          width={300}
+          height={0}
+          src={car.img}
+          alt="product image"
+          className=""
+        />
+      </div>
 
       {/* cart logos div */}
       <div className="w-full h-[80px] flex justify-around  ">
@@ -68,14 +69,16 @@ const CarCard = ({ car }: CarProps) => {
 
       {/* rent button  */}
       <div className="w-full flex justify-center">
-        <CustomButton
-          title="Подробнее..."
-          style="w-[90%] h-[35px] rounded-[30px] bg-blue-700 my-1 text-white "
-          handleClick={() => setIsOpen(true)}
-          btnType="button"
-        />
+        <button
+          onClick={() => setIsOpen(true)}
+          className="w-[130px] my-2 h-[30px] rounded-[30px] bg-blue-700 "
+        >
+          Подробнее
+        </button>
       </div>
 
+
+      {/* при нажати кнопки 'Подробнее' в CarDetails передается объект car (т.е данные о конкретной машине) */}
       {/* modal window */}
       <CarDetails
         isOpen={isOpen}

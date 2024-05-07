@@ -19,10 +19,19 @@ const config: Config = {
         md: '768px',
         lg: '976px',
         xl: '1440px',
-      },
+      }
     },
+    fontFamily: {
+      'sans': ['Roboto', ],
+      // 'serif': ['ui-serif', 'Georgia'],
+      // 'mono': ['ui-monospace', 'SFMono-Regular'],
+      // 'display': ['Oswald',],
+      // 'body': ['"Open Sans"'],
+    }
   },
 
-  plugins: [],
+  plugins: [
+    
+  ],
 };
 export default config;

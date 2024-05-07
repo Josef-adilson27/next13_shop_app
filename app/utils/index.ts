@@ -1,24 +1,5 @@
 
 
-export async function fetchFilteredCars(carMake:string,carModel:string,fuel:string) {
-  const response = await fetch(`http://localhost:3000/api/fetch?make=${carMake}&model=${carModel}&fuel=${fuel}`,
-  {cache:'no-store'}
-);
-  const resuslt = await response.json();
-  return resuslt;
-}
-
-
-
-export async function fetchCars() {
-
-  let response = await fetch('http://localhost:3000/api/fetch',
-   {cache:'no-store'}
-   );
-   const resuslt = await response.json();
-   return resuslt;
-
-}
 
 export const calculateCarRent = (city_mpg: number, year: number) => {
   const basePricePerDay = 50; // Базовая цена аренды за сутки в долларах

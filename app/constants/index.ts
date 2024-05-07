@@ -29,44 +29,32 @@ export const footerLinks = [
   },
 ];
 
- const carList: string[] = [
-  "audi",
-  "dodge",
-  "lada",
-  "porshe",
-  "toyota",
-];
 
-carList.push("All");
-carList.sort();
+export const CarsModels: any = [
+  {
+    make:'All',
+    models:[]
+  },
+  {
+    make:'Audi',
+    models:["All","A3", "A4", "A5", "A7", "A8"]
+  },
+  {
+    make:'Toyota',
+    models:["All","Land Cruiser", "Camry", "Carolla"]
+  },
+  {
+    make:'Porshe',
+    models:["All","Carrera", "Panamera", "Cayenne", "Maccan"]
+  },
+  {
+    make:'Lada',
+    models:["All","Priora", "Vesta", "X-ray"],
+  },
+  {
+    make:'Dodge',
+    models:["All","Challenger", "Durango", "RAM"]
+  }
+]
 
 
-//экспорт  массива бренда авто с заглавными буквами
-export const manufactures = carList.map((item) => {
-    return item
-    .split("")
-    .slice(0,1)
-    .join(" ")
-    .toUpperCase() 
-    +item.split('')
-    .slice(1)
-    .join('')
-});
-  
-export const CarsModels: any = {
-  audi: ["a3", "a4", "a5", "a7", "a8"],
-  toyota: ["land cruiser", "camry", "carolla"],
-  porshe: ["carrera", "panamera", "cayenne", "maccan"],
-  lada: ["priora", "vesta", "x-ray"],
-  dodge: ["challenger", "Durango", "RAM"],
-};
-
-//делаем заглавными все названия моделей авто
-for (let key in CarsModels) {
-    let man = CarsModels[key].map((item:string) => {
-      return item.split("").slice(0, 1).join(" ").toUpperCase() + item.split('').slice(1).join('')
-    });  
-   
-    CarsModels[key] = man;
-}
-  
